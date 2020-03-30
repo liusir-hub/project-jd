@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <style>
+        *{margin: 0px;padding: 0px;}
+        ul,ol,li{list-style: none;}
+        a{text-decoration: none;color:inherit;}
+        body,html{width: 100%;}
+        body{font:12px/150% Arial,Verdana,"\5b8b\4f53";color: black;}
+
+        h1,h2,h3,h4,h5,h6{font-size: 14px;font-weight: normal;}
+        em,b,i{display: block;font-style: normal;}
+        .l{float: left;}
+        .r{float: right;}
+        .clear::after{content: '';display: block;clear: both;}
+        .black{color: #333;}
+        .active{color: #e93854;font-weight: bold;}
+
+        .container{width: 990px;position: relative;margin: 0 auto;}
+        .welcome{width: 990px;position: relative;margin: 0 auto;}
+
+        .logo{width: 300px;position: relative;margin: 10px 0;}
+        .welcome img{width: 170px;height: 60px;vertical-align: middle;}
+        .logo b{font-weight: bold;position: absolute;right: 0;bottom: 0;width: 110px;height: 40px;background: url(//misc.360buyimg.com/user/passport/1.0.0/css/i/l-icon.png) no-repeat;vertical-align: middle;}
+        .survay{position: relative;top: 52px;}
+        .survay b{display: inline-block;width: 18px;height: 14px;background: url(//misc.360buyimg.com/user/passport/1.0.0/css/i/q-icon.png) no-repeat;margin: 0 5px;vertical-align: middle;}
+
+        .alert{width: 100%;background:#fff8f0;}
+        .alert-in{padding: 10px 0;width:90% ;text-align: center;margin: 0 auto;}
+        .tips{display: inline-block;width: 16px;height: 16px;margin-right: 5px;background: url(//misc.360buyimg.com/user/passport/1.0.0/widget/login-form-2018-0827/i/icon-tips.png) no-repeat;vertical-align: middle;}
+        .alert-in p{display: inline-block;font-size: 12px;color: #999;}
+
+        section{background: #e93854;height: 475px;margin-bottom: 20px;}
+        .register{background: url(http://img11.360buyimg.com/da/jfs/t16363/164/2298198848/33213/870500f1/5aa68632Nd7790d0c.png) no-repeat;height: 475px;}
+        .registe-form{width: 346px;float: right;position: relative;top: 10px;/* height: 400px; */background: white;text-align: center;color: #999;}
+        .hint-wrap{background: #fff8f0;}
+        .hint{padding:10px 0;width: 90%;display: inline-block;}
+        .hint p{font-size: 12px;color: #999;vertical-align: middle;display: inline-block;}
+
+        .registe-btn{width: 50%;height: 54px;font-size: 18px;font-family: "microsoft yahei";text-align: center;border-bottom: 1px solid #f4f4f4;line-height: 54px;}
+
+        .btn1{position: relative;margin-top: 55px;}
+        .btn1 .btn1-l{position: absolute;padding: 8px;width: 155px;border: 1px solid #f4f4f4;left: 94px;top: 10px;}
+        .btn1-in{position: relative;height:168px;}
+        .btn1 .btn1-r{width: 141px;height: 168px;background: url(//misc.360buyimg.com/user/passport/1.0.0/css/i/phone-orange.png) no-repeat;position: absolute;right: 8px;top: 8px;display: none;}
+        .tip-qr{margin:30px auto 14px}
+        .tip-qr li{display: inline-block;vertical-align: middle;}
+        .tip-qr span{color: red;}
+        .tip-qr .open{margin-right: 10px;}
+
+        .little{display: inline-block;vertical-align: middle;width: 25px;height: 25px;background: url(//misc.360buyimg.com/user/passport/1.0.0/widget/login-form-2018-0827/i/qr-coagent.png) no-repeat;}
+        .lit-1{background-position: 0; }
+        .lit-2{background-position: -27px;}
+        .lit-3{background-position: -54px;}
+        .good-qr li{display: inline-block;vertical-align: middle;margin-left: 10px;margin-bottom: 20px;}
+        .good-qr em{display: inline-block;vertical-align: middle;}
+
+        .immediate{padding: 0px 20px;line-height: 50px;border-top: 1px solid #f4f4f4;background-color: #fcfcfc;}
+        .icon{display: inline-block;vertical-align: middle;width: 19px;height: 18px;background: url(//misc.360buyimg.com/user/passport/1.0.0/widget/login-form-2018-0827/i/QQ-weixin.png) no-repeat;margin-right: 5px;}
+        .icon-p{background-position: -20px;}
+        .icon-zhu{display: inline-block;vertical-align: middle;width: 16px;height: 16px;margin-right: 5px;background: url(//misc.360buyimg.com/user/passport/1.0.0/widget/login-form-2018-0827/i/pwd-icons-new.png) -104px -75px no-repeat;}
+        .immediate span{display: block;float: left;width: 2px;height: 14px;margin: 18px 8px 0px;background: #ccc;}
+        .immediate a:hover{color: #b61d1d;text-decoration: underline;}
+
+        .btn2{padding: 0 20px;}
+        .label-s{width: 38px;height: 38px;display:block;background: url(//misc.360buyimg.com/user/passport/1.0.0/widget/login-form-2018-0827/i/pwd-icons-new.png) no-repeat;position: absolute;}
+        .label-d{background-position: -48px 0;}
+        .hid{display: none;}
+
+        .input-s{width: 200px;height: 18px;overflow: hidden;font-size: 14px;line-height: 18px;border: 0;width: 254px;padding: 10px 0 10px 50px;}
+        input:focus{outline: none;}
+        .active-input1{background-position: 0 -48px;}
+        .active-input2{background-position: -48px -48px;}
+        .form-user{border: 1px solid #ccc;margin-top: 85px;margin-bottom: 20px;width: 304px;position: relative;}
+        .form-pass{border: 1px solid #ccc;margin-bottom: 20px;width: 304px;position: relative;}
+        .forget{text-align: right;margin-bottom: 20px;}
+        .btn{display: block;width: 302px;height: 31px;border: 1px solid #e85356;background: #e4393c;font-size: 20px;line-height: 31px;font-family: 'Microsoft YaHei';color: white;cursor: pointer;margin-bottom: 30px;}
+
+        footer{padding-bottom: 30px;text-align: center;color: #666;}
+        .foot a{margin: 0 10px;}
+        .copy{margin: 10px 0;}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="welcome clear">
+            <a href="//www.jd.com/"target='_blank' class="logo l"><img src="http://misc.360buyimg.com/lib/img/e/logo-201305-b.png" alt=""><b></b></a>
+            <a href="//surveys.jd.com/index.php?r=survey/index/sid/568245/lang/zh-Hans" target="_blank" class="survay r"><b></b>登录页面，调查问卷</a>
+        </div>
+        <div class="alert">
+            <div class="alert-in">
+                <i class="tips"></i>
+                <p>依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版<a href="https://about.jd.com/privacy/" target="_blank" class="black">《京东隐私政策》</a>已上线，将更有利于保护您的个人隐私。 </p>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="register container">
+            <div class="registe-form">
+                <div class="hint-wrap">
+                    <div class="hint">
+                        <b class="tips"></b>
+                        <p>京东不会以任何理由要求您转账汇款，谨防诈骗。</p>
+                    </div>
+                </div>
+                <div class="registe-btn l" id="sao">
+                    <a href="javascript:;" class="active">扫码登录</a>
+                </div>
+                <div class="registe-btn r" id="zhang">
+                    <a href="javascript:;">账户登录</a>
+                </div>
+                <div class="btn1">
+                    <div class="btn1-in">
+                        <div class="btn1-l">
+                            <img src="//qr.m.jd.com/show?appid=133&size=147&t=1584168276885" alt="">
+                        </div>
+                        <div class="btn1-r"></div>
+                    </div>
+                    <div class="tip-qr">
+                        <ul>
+                            <li class="open">打开<a href="/uc/links?tag=apps" target="_blank"><span>手机京东</span></a></li>
+                            <li>扫描二维码</li>
+                        </ul>
+                    </div>
+                    <div class="good-qr">
+                        <ul>
+                            <li><b class="little"></b><em>免输入</em></li>
+                            <li><b class="lit-2 little"></b><em>更快 </em></li>
+                            <li><b class="lit-3 little"></b><em>更安全</em></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btn2 hid">
+                    <div class="btn2-in">
+                        <p class="form-user"><label for="username" class="label-s"></label><input type="text" class="username input-s" id="username" placeholder="邮箱/用户名/登录手机" autocomplete="off"></p>
+                        <p class="form-pass"><label for="password" class="label-s label-d"></label><input type="password" class="password input-s" id="password" placeholder="密码"></p>
+                        <p class="forget"><a href="#">忘记密码</a></p>
+                        <a href="javascript:;" class="btn">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+                    </div>
+                </div>
+                <div class="immediate">
+                    <ul class="clear">
+                        <li class="l"><a href="#"><b class="icon"></b>QQ</a></li><span></span>
+                        <li class="l"><a href="#"><b class="icon icon-p"></b>微信</a></li>
+                        <li class="r"><a href="http://localhost/program/html/regist.html" target="_blank" style="color: #b61d1d;"><b class="icon-zhu"></b>立即注册</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="foot">
+                <a href="#">关于我们</a>
+                |
+                <a href="#">联系我们</a>
+                |
+                <a href="#">人才招聘</a>
+                |
+                <a href="#">商家入驻</a>
+                |
+                <a href="#">广告服务</a>
+                |
+                <a href="#">手机京东</a>
+                |
+                <a href="#">友情链接</a>
+                |
+                <a href="#">销售联盟</a>
+                |
+                <a href="#">京东社区</a>
+                |
+                <a href="#">京东公益</a>
+                |
+                <a href="#">English Site</a>
+            </div>
+            <div class="copy">Copyright © 2004-2020  京东JD.com 版权所有</div>
+        </div>
+        
+    </footer>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        !function(){
+            let timer =null
+            $('.btn1-in').hover(
+                function(){
+                $('.btn1-l').animate({
+                    'left':'30px',
+                },'linear')
+                timer=setTimeout(function(){
+                    $('.btn1-r').css('display','block')
+                },400)
+            },function(){
+                $('.btn1-l').animate({
+                    'left':'94px',
+                })
+                clearTimeout(timer);
+                $('.btn1-r').css('display','none')
+            })
+            $('#sao').on('click',function(){
+                $(this).find('a').addClass('active');
+                $('#zhang').find('a').removeClass('active')
+                $('.btn1').removeClass('hid');
+                $('.btn2').addClass('hid');
+            })
+            $('#zhang').on('click',function(){
+                $(this).find('a').addClass('active')
+                $('#sao').find('a').removeClass('active');
+                $('.btn2').removeClass('hid')
+                $('.btn1').addClass('hid')
+            })
+            $('.btn2-in p').focusin(function(){
+                console.log($(this).index())
+                if($(this).index()===0){
+                    $(this).find('label').addClass('active-input1')
+                }else{
+                    $(this).find('label').addClass('active-input2')
+                }
+            })
+            $('.btn2-in p').focusout(function(){
+                console.log($(this).index())
+                $(this).find('label').removeClass('active-input1 active-input2')
+            })
+
+            if(localStorage.getItem('user')&&localStorage.getItem('pass')){
+                $('#username').val(localStorage.getItem('user'));
+                $('#password').val(localStorage.getItem('pass'));
+            }
+            $('#username')
+        }();
+    </script>
+</body>
+</html>

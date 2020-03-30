@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表页</title>
+    <style>
+        .container{width: 1190px;margin: 0 auto;}
+        .container li{float: left;border: 1px solid #ccc;margin: 0px 10px 10px 0px;width: 200px;}
+        .container p{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+        .container img{width: 200px;height: 200px;}
+        button{border: 0;outline: none;cursor: pointer;}
+    </style>
+    <link rel="stylesheet" href="../css/pagination.css">
+    
+    
+</head>
+<body>
+    <button>默认排序</button>
+    <button>递增排序</button>
+    <button>递减排序</button>
+    <header></header>
+    <div class="container">
+        <ul></ul>
+    </div>
+    <div class="pagelist">
+        <div class="m-style page">
+        </div>
+    </div>
+    <script src="../script/require.js" defer async='true' data-main="../script/main" id="l2" sid='2'></script>
+</body>
+</html>
